@@ -3,7 +3,7 @@
  * DisplayPanel display - текстовое поле для дисплея;
  * FunctionPanel function - содержит кнопки функций;
  * OperationPanel operation - содержит кнопки операций;
- * NumericPanel number - содержит кнопки цифр;
+ * NumberPanel key - содержит кнопки цифр;
  */
 
 package design;
@@ -15,13 +15,13 @@ import java.awt.event.KeyEvent;
 
 public class CalcFrame extends JFrame {
 
-    int width = 400;
-    int height = 300;
+    int width = 380;
+    int height = 480;
 
     DisplayPanel display;
     FunctionPanel function;
     OperationPanel operation;
-    NumericPanel number;
+    NumberPanel key;
     Calculator calculator;
 
     public CalcFrame(Calculator calculator) {
@@ -59,10 +59,10 @@ public class CalcFrame extends JFrame {
         layout.setConstraints(operation, constraints);
         getContentPane().add(operation);
 
-        number = new NumericPanel(calculator);
+        key = new NumberPanel(calculator);
         buildConstraints(constraints, 0, 4, 3, 4);
-        layout.setConstraints(number, constraints);
-        getContentPane().add(number);
+        layout.setConstraints(key, constraints);
+        getContentPane().add(key);
 
 
         setLocationRelativeTo(null);

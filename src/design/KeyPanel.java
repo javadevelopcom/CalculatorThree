@@ -5,16 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-public class NumericPanel extends JPanel {
+public class KeyPanel extends JPanel {
 
     protected Calculator calculator;
     protected OperationHandler operationHandler;
-    protected HashMap keyMap;
+    protected HashMap<String, String> keyMap;
 
-    public NumericPanel(Calculator calculator) {
+    public KeyPanel(Calculator calculator) {
         this.calculator = calculator;
         operationHandler = new OperationHandler();
-        keyMap = new HashMap();
+        keyMap = new HashMap<String, String>();
     }
 
     protected void addKey(String display, String action, ActionListener handler) {
@@ -26,7 +26,7 @@ public class NumericPanel extends JPanel {
     }
 
     protected String getKey(String action){
-        return (String)keyMap.get(action);
+        return keyMap.get(action);
     }
 
     public OperationHandler getOperationHandler(){
@@ -34,7 +34,7 @@ public class NumericPanel extends JPanel {
     }
 
     /**
-     * —Œ«ƒ¿≈Ã ¬Õ”“–≈ÕÕ»…  À¿——, ¬  Œ“Œ–ŒÃ –¿«Ã≈Ÿ¿≈Ã À»—≈Õ≈–€
+     * –°–û–ó–î–ê–ï–ú –í–ù–£–¢–†–ï–ù–ù–ò–ô –ö–õ–ê–°–°, –í –ö–û–¢–û–†–û–ú –†–ê–ó–ú–ï–©–ê–ï–ú –õ–ò–°–ï–ù–ï–†–´
      */
 
     private class OperationHandler implements ActionListener {
