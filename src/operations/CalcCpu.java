@@ -4,9 +4,11 @@ import java.util.Observable;
 
 public class CalcCpu extends Observable {
 
-//    private Display display;
-//    private Memory memory;
-//
+    private Display display;
+    private Memory memory;
+    private OperandStack operandStack;
+    private OperationStack operationStack;
+
 //
 //public void enterOperation(String opcode){
 //    Operations op = findOperations(opcode);

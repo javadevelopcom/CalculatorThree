@@ -9,7 +9,7 @@ public class Calculator {
 
     public void Calculator() {
         cpu = new CalcCpu();
-//        memo = new CalcMemo();
+//        ram = new CalcRam();
         frame = new CalcFrame(this);
     }
 //    public void enterOperation(String operation){

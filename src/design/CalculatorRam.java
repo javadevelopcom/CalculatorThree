@@ -7,11 +7,11 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class CalculatorTape implements Observer {
+public class CalculatorRam implements Observer {
 
     LinkedList<Command> commands;
 
-    public CalculatorTape(CalcCpu cpu) {
+    public CalculatorRam(CalcCpu cpu) {
         cpu.addObserver(this);
         commands = new LinkedList<Command>();
     }
