@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/design/CalcFrame.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/design/Calculator.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/design/DisplayPanel.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/design/KeyPanel.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/operations/CalcCpu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/CalcOOP/design/CalcFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/CalcOOP/design/Calculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/CalcOOP/design/DisplayPanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/CalcOOP/design/KeyPanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/CalcOOP/operations/CalcCpu.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
