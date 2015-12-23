@@ -10,8 +10,8 @@ public abstract class BinaryOperation extends Operat {
         this.cpu = cpu;
         this.stack = cpu.getOperandStack();
         Val value1, value2;
+        value2 = stack.pop();   //!
         value1 = stack.pop();
-        value2 = stack.pop();
         stack.push(executeBinary(value1, value2));
         cpu.setUpdateDisplay();
     }
