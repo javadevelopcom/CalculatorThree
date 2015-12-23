@@ -9,12 +9,12 @@ public class KeyPanel extends JPanel {
 
     protected Calculator calculator;
     protected OperationHandler operationHandler;
-    protected HashMap<String, String> keyMap;
+    protected HashMap keyMap;
 
     public KeyPanel(Calculator calculator) {
         this.calculator = calculator;
         operationHandler = new OperationHandler();
-        keyMap = new HashMap<String, String>();
+        keyMap = new HashMap();
     }
 
     protected void addKey(String display, String action, ActionListener handler) {
@@ -25,11 +25,11 @@ public class KeyPanel extends JPanel {
         keyMap.put(action, display);
     }
 
-    protected String getKey(String action){
-        return keyMap.get(action);
+    protected String getKey(String action) {
+        return (String) keyMap.get(action);
     }
 
-    public OperationHandler getOperationHandler(){
+    public OperationHandler getOperationHandler() {
         return operationHandler;
     }
 
@@ -37,7 +37,7 @@ public class KeyPanel extends JPanel {
      * СОЗДАЕМ ВНУТРЕННИЙ КЛАСС, В КОТОРОМ РАЗМЕЩАЕМ ЛИСЕНЕРЫ
      */
 
-    private class OperationHandler implements ActionListener {
+    class OperationHandler implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             calculator.enterOperation(e.getActionCommand());

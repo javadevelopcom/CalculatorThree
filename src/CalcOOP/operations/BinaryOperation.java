@@ -2,7 +2,6 @@ package CalcOOP.operations;/* https://github.com/javadevelopcom */
 
 public abstract class BinaryOperation extends Operat {
     public BinaryOperation() {
-//        precedence = MEDIUM;    // DELETE ?
         lookahead = true;
     }
 

@@ -9,11 +9,11 @@ import java.util.Observer;
 
 public class CalcActivity implements Observer {
 
-    LinkedList<Command> commands;
+    LinkedList commands;
 
     public CalcActivity(CalcCpu cpu) {
         cpu.addObserver(this);
-        commands = new LinkedList<Command>();
+        commands = new LinkedList();
     }
 
     @Override

@@ -15,13 +15,13 @@ public class Register extends Observable {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = this.value.create(value);
+    public void setValue(Val value) {
+        this.value = value;
         doNotify();
     }
 
-    public void setValue(Val value) {
-        this.value = value;
+    public void setValue(String value) {
+        this.value = this.value.create(value);
         doNotify();
     }
 

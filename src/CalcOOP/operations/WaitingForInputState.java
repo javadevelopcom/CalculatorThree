@@ -18,7 +18,7 @@ public class WaitingForInputState extends CalcState {
         if (cpu.getOperandStack().empty())
             cpu.pushDisplayRegister();
         cpu.pushOperation(op);
-        if (!op.isLookahead())
+        if (!op.getLookahead())
             return cpu.WaitingForInputState;
         else
             return cpu.WaitingForNumberState;

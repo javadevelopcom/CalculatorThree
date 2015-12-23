@@ -23,18 +23,19 @@ public abstract class Operat {
         return precedence;
     }
 
-    public boolean isLookahead() {
+    public boolean getLookahead() {
         return lookahead;
-    }
-
-    public void setString(String s) {
-        this.symbol = s;
     }
 
     @Override
     public String toString() {
         return symbol;
 //        return super.toString();
+    }
+
+    public void setString(String s) {
+        symbol = s;
+//        this.symbol = s;
     }
 
     public abstract void execute(CalcCpu cpu);

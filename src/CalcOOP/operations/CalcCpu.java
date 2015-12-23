@@ -7,12 +7,12 @@ import java.util.Observer;
 
 public class CalcCpu extends Observable {
 
-    private Display display;
-    private Memory memory;
     private OperandStack operandStack;
     private OperationStack operationStack;
+    private Memory memory;
+    private Display display;
     private CalcState state;
-    private HashMap<String, Operat> operationMap;
+    private HashMap operationMap;
 
     public CalcState WaitingForInputState;
     public CalcState WaitingForNumberState;
@@ -22,13 +22,13 @@ public class CalcCpu extends Observable {
     boolean displayUpdate;
 
     public CalcCpu() {
-        Val initialValue = new DecimalValue(0);
+        Val initialValue = new DecimalValue(0.0);
         operandStack = new OperandStack();
         operationStack = new OperationStack();
         memory = new Memory(initialValue);
         display = new Display(initialValue);
         displayUpdate = false;
-        operationMap = new HashMap<String, Operat>();
+        operationMap = new HashMap();
         initializeStates();
         loadOperand(initialValue);
         setState(WaitingForInputState);
@@ -50,8 +50,21 @@ public class CalcCpu extends Observable {
         }
     }
 
+    public void enterOperation(String opcode) {
+        Operat op = findOperation(opcode);
+        if (opcode.compareTo("MemoryRecall") == 0) {
+            setState(state.enterValue(op));
+        } else
+            setState(state.enterOperation(op));
+    }
+
+    public void enterDigit(String digit) {
+        setState(state.enterDigit(digit));
+    }
+
+
     private Operat findOperation(String operation) {
-        String model = "CalcOOP";
+        String model = "CalcOOP.operations";   // path to operations
         Operat op = null;
         Constructor constructor = null;
 
@@ -70,17 +83,6 @@ public class CalcCpu extends Observable {
         return op;
     }
 
-    public void enterDigit(String digit) {
-        setState(state.enterDigit(digit));
-    }
-
-    public void enterOperation(String opcode) {
-        Operat op = findOperation(opcode);
-        if (opcode.compareTo("MemoryRecall") == 0) {
-            setState(state.enterValue(op));
-        } else
-            setState(state.enterOperation(op));
-    }
 
     public void pushDisplayRegister() {
         Val value = display.createValue();
@@ -93,9 +95,10 @@ public class CalcCpu extends Observable {
     }
 
     public void pushOperation(Operat op) {
-        if (!operationStack.empty() && operationStack.peek().getPrecedence() >= op.getPrecedence()) ;
-        operationStack.pop().execute(this);
-        if (!op.isLookahead()) {
+        if (!operationStack.empty() &&
+                operationStack.peek().getPrecedence() >= op.getPrecedence())
+            operationStack.pop().execute(this);
+        if (!op.getLookahead()) {
             op.execute(this);
         } else {
             operationStack.push(op);

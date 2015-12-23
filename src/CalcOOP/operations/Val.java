@@ -6,11 +6,11 @@ public interface Val {
 
     Val add(Val other);
 
-    Val subtract(Val string);
+    Val subtract(Val other);
 
-    Val multiply(Val string);
+    Val multiply(Val other);
 
-    Val divide(Val string);
+    Val divide(Val other);
 
     Val negate();
 

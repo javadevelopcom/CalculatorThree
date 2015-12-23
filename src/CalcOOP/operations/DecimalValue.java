@@ -27,10 +27,10 @@ public class DecimalValue implements Val {
         this.value = this.value.setScale(SCALE, BigDecimal.ROUND_UP);
     }
 
-    public DecimalValue(int value) {
-        this.value = new BigDecimal(value);
-        this.value = this.value.setScale(SCALE, BigDecimal.ROUND_UP);
-    }
+//    public DecimalValue(int value) {
+//        this.value = new BigDecimal(value);
+//        this.value = this.value.setScale(SCALE, BigDecimal.ROUND_UP);
+//    }
 
     @Override
     public Val create(String string) {
@@ -60,13 +60,13 @@ public class DecimalValue implements Val {
     public Val divide(Val other) {
         BigDecimal result = null;
         try {
-            result = value.divide(((DecimalValue)other).value,
+            result = value.divide(((DecimalValue) other).value,
                     SCALE, BigDecimal.ROUND_UP);
         } catch (ArithmeticException e) {
             System.err.println("Arithmetic Error");
             return this;
-        } return new DecimalValue(result);
-
+        }
+        return new DecimalValue(result);
     }
 
     @Override
@@ -102,8 +102,8 @@ public class DecimalValue implements Val {
 
     @Override
     public String addDigit(String number, String digit) {
-//        boolean decimalSet = (number.indexOf(".") == -1) ? false : true;
-        boolean decimalSet = (number.contains("."));
+        boolean decimalSet = (number.indexOf(".") == -1) ? false : true;
+//        boolean decimalSet = (number.contains("."));
         if (digit.equals(".")) {
             if (decimalSet)
                 return number;
@@ -124,7 +124,7 @@ public class DecimalValue implements Val {
                 if (s.charAt(i - 1) != '0')
                     break;
             }
-            s = s.substring(0, 1);
+            s = s.substring(0, i);
         } else s += ".";
         return s;
     }
